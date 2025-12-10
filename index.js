@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3002;
 // 🔥 STRICT CORS FOR RENDER + VERCEL
 // =========================================================
 const allowedOrigins = [
-  "https://sahilsaykarcom.vercel.app/", // Vercel frontend
+  "https://sahilsaykarcom.vercel.app", // Vercel frontend
   "http://localhost:5173", // Local dev
 ];
 
