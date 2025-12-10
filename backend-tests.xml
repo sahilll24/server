@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="34" failures="0" errors="0" time="1.542">
+    <testsuite name="__tests__/emailTemplates.test.js" timestamp="2025-12-01T21:01:36.382Z" hostname="VICTUS" tests="20" failures="0" errors="0" skipped="0" time="0.019155559">
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should generate HTML notification email" time="0.00411526">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should include name in email HTML" time="0.000538227">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should include email in email HTML" time="0.000313987">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should include subject in email HTML" time="0.000247439">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should include message in email HTML" time="0.000288446">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should escape HTML special characters to prevent XSS" time="0.000582907">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should handle messages with newlines" time="0.000549477">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should include proper HTML structure" time="0.000345737">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should include site color scheme in CSS" time="0.000540945">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createNotificationEmail &gt; should include mailto link for reply" time="0.000541927">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should generate HTML confirmation email" time="0.001320245">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should include name in email HTML" time="0.00058614">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should include subject in email HTML" time="0.00077673">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should include thank you message" time="0.000696864">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should escape HTML special characters to prevent XSS" time="0.000694816">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should include proper HTML structure" time="0.000717748">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should include site color scheme in CSS" time="0.000952228">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should include sender name in email" time="0.00041211">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should include email address in footer" time="0.00029999">
+        </testcase>
+        <testcase classname="__tests__/emailTemplates.test.js" name="Email Templates &gt; createConfirmationEmail &gt; should handle special characters in name and subject" time="0.000339711">
+        </testcase>
+    </testsuite>
+    <testsuite name="__tests__/index.test.js" timestamp="2025-12-01T21:01:36.400Z" hostname="VICTUS" tests="14" failures="0" errors="0" skipped="0" time="0.179119457">
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should send email successfully with valid data" time="0.087478326">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 400 if name is missing" time="0.009968679">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 400 if email is missing" time="0.006823217">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 400 if subject is missing" time="0.00570905">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 400 if message is missing" time="0.008259155">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 400 for invalid email format" time="0.006358063">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 400 for email without domain" time="0.006377457">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 400 for email without @ symbol" time="0.005477917">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should return 500 on email send failure" time="0.009524425">
+            <system-err>
+Error sending email: Error: SMTP connection failed
+    at /home/sahil/desktop/sahil-devops-portfolio/server/__tests__/index.test.js:200:42
+    at file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:146:14
+    at file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:533:11
+    at runWithTimeout (file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:39:7)
+    at runTest (file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:1056:17)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at runSuite (file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runSuite (file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runSuite (file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///home/sahil/desktop/sahil-devops-portfolio/server/node_modules/@vitest/runner/dist/index.js:1262:5)
+
+            </system-err>
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should handle empty string fields as missing" time="0.005718702">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should handle whitespace-only fields as missing" time="0.004996843">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should include HTML in notification email" time="0.006681543">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; POST /api/contact &gt; should include HTML in confirmation email" time="0.004213529">
+        </testcase>
+        <testcase classname="__tests__/index.test.js" name="Contact API &gt; GET /api/health &gt; should return 200 with status ok" time="0.006958196">
+        </testcase>
+    </testsuite>
+</testsuites>
