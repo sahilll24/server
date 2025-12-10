@@ -10,13 +10,13 @@ import {
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // =========================================================
 // 🔥 STRICT CORS FOR RENDER + VERCEL
 // =========================================================
 const allowedOrigins = [
-  "https://sahilsaykar-abrfh2if7-sahilsaykars-projects.vercel.app", // Vercel frontend
+  "https://sahilsaykarcom.vercel.app/", // Vercel frontend
   "http://localhost:5173", // Local dev
 ];
 
