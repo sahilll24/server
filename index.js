@@ -13,20 +13,24 @@ const app = express();
 const PORT = process.env.PORT || 3002;
 
 // =========================================================
-// 🔥 STRICT CORS FOR RENDER + VERCEL
+// 🔥 CORS (Railway + Vercel + Localhost)
 // =========================================================
 const allowedOrigins = [
-  "https://sahilsaykarcom.vercel.app", // Vercel frontend
-  "http://localhost:5173", // Local dev
+  "https://sahilsaykarcom.vercel.app",
+  "http://localhost:5173",
 ];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+    origin: (origin, callback) => {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        /\.vercel\.app$/.test(origin) ||
+        /\.railway\.app$/.test(origin)
+      ) {
         callback(null, true);
       } else {
-        console.log("❌ CORS blocked origin:", origin);
         callback(new Error("CORS Not Allowed"));
       }
     },
@@ -36,7 +40,7 @@ app.use(
   })
 );
 
-// Preflight OPTIONS
+// Preflight
 app.options("*", cors());
 
 // =========================================================
@@ -45,14 +49,19 @@ app.options("*", cors());
 app.use(express.json());
 
 // =========================================================
-// Nodemailer Transporter
+// Nodemailer Transporter (Railway compatible)
 // =========================================================
 const createTransporter = () => {
   return nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,          // 🔥 Railway supports this
+    secure: false,
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS, // Gmail app password
+      pass: process.env.EMAIL_PASS, // Gmail App Password
+    },
+    tls: {
+      rejectUnauthorized: false,
     },
   });
 };
@@ -72,7 +81,7 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
-    // Validate email format
+    // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({
@@ -82,9 +91,10 @@ app.post("/api/contact", async (req, res) => {
     }
 
     const transporter = createTransporter();
-    const recipientEmail = process.env.RECIPIENT_EMAIL || "sahilsaykar24@gmail.com";
+    const recipientEmail =
+      process.env.RECIPIENT_EMAIL || "sahilsaykar24@gmail.com";
 
-    // Email 1 → You
+    // Email 1 → To you
     const notificationHTML = createNotificationEmail(
       name,
       email,
@@ -100,7 +110,7 @@ app.post("/api/contact", async (req, res) => {
       replyTo: email,
     });
 
-    // Email 2 → User
+    // Email 2 → Confirmation to user
     const confirmationHTML = createConfirmationEmail(name, subject);
 
     await transporter.sendMail({
